@@ -1,0 +1,14 @@
+# Zensical / Static Site Build Outputs
+site/
+.zensical/
+
+# Python / uv Dependency Management
+.venv/
+__pycache__/
+*.pyc
+.python-version
+
+# Dev stuff
+zensical.toml
+uv.lock
+main.py
