@@ -14,4 +14,4 @@ Rivet introduces the following changes to the upstream Task project:
 | **Removed** | silent (Schema) | Removed from schema. Additional filtering via structured log formats (JSON). |
 | **New**&nbsp;:lucide-rocket: | verbose (CLI Flag) | Controls log levels across 4 tiers: None, Info, Debug, and Trace. |
 | **Removed** | env (Schema) | Removed from schema. |
-| **New**&nbsp;:lucide-rocket: | Unified vars | Both `vars` and `env` are unified into `vars`. |
+| **New**&nbsp;:lucide-rocket: | Vars | Both `vars` and `env` are unified into `vars`. |

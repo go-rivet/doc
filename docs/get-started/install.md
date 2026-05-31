@@ -1,6 +1,24 @@
 
 # Install
 
+## Go Native
+
+```bash title="Go Install (Global)"
+go install github.com/go-rivet/rivet/cmd/rivet@latest
+```
+
+```bash title="Go Tool (Project-Level)"
+go get -tool github.com/go-rivet/rivet/cmd/rivet@latest
+
+go tool rivet --version
+
+# Expected output:
+Rivet v0.2.0
+Commit: ffc9bc74
+Built:  2026-05-17T12:32:58Z
+```
+
+
 ## Linux/Darwin
 
 ### Automated Install Script
