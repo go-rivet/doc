@@ -13,6 +13,7 @@ sidebar_label: Task
 | **`absPath`** | `via filepath.Abs` |
 | **`fromSlash`** | `via filepath.FromSlash` |
 | **`joinPath`** | `via filepath.Join` |
+| **`patsubst`** | `(oldExt string, paths []string) []string` |
 | **`relPath`** | `via filepath.Rel` |
 | **`toSlash`** | `via filepath.ToSlash` |
 

@@ -16,3 +16,7 @@ Rivet introduces the following changes to the upstream Task project:
 | **Removed** | env (Schema) | Removed from schema. |
 | **New**&nbsp;:lucide-rocket: | Vars | Both `vars` and `env` are unified into `vars`. |
 | **New**&nbsp;:lucide-rocket: | Templater | Sprig functions are refactored into the Rivet codebase. |
+| **Removed**&nbsp;:lucide-rocket: | Fingerprint | Removed checksum fingerprint method. |
+| **Refactored**&nbsp;:lucide-rocket: | Fingerprint | Simplified operation, always runs, `force` to override. As a result the schema item `method` is removed. |
+| **New**&nbsp;:lucide-rocket: | Fingerprint | Speedup for Timestamp fingerprint method. |
+| **Refactored**&nbsp;:lucide-rocket: | CLI Flags | Redesign of flag mechanism (removes pflag dep) with support for doc generation. |
