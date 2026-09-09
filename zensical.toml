@@ -56,7 +56,15 @@ nav = [
   ]},
   { "Usage" = [
     "usage/cli.md",
-    "usage/schema.md",
+    { "Schema" = [
+      "usage/schema/global.md",
+      "usage/schema/task.md",
+      "usage/schema/transform.md",
+      "usage/schema/cmd.md",
+      "usage/schema/dep.md",
+      "usage/schema/for.md",
+      "usage/schema/vars.md"
+    ]},
     { "Templater" = [
       "usage/templater/task.md",
       "usage/templater/sprig.md"

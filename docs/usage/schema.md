@@ -1,6 +1,0 @@
-
-# Schema
-
-!!! info
-
-    Pending.
