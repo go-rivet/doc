@@ -9,6 +9,7 @@ Rivet introduces the following changes to the upstream Task project:
 
 | Change | Area | Description |
 | :--- | :--- | :--- |
+| **New**&nbsp;:lucide-rocket: | Logging | Now supports OpenTelemetry format logs (CLI option `--log otel`). |
 | **New**&nbsp;:lucide-rocket: | Transform | Makefile like `subst` pattern for efficient transform definition. |
 | **New**&nbsp;:lucide-rocket: | Transform | Express a tasks sources and targets as a `transform` with `matches` and `yields`. |
 | **Refactored**&nbsp;:lucide-rocket: | CLI Flags | Redesign of flag mechanism (removes pflag dep) with support for doc generation. |

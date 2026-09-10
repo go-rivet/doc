@@ -61,7 +61,7 @@ rivet [OPTIONS] [tasks...] [-- ARGS]
 | Option | Short | Env | Description |
 | :--- | :--- | :--- | :--- |
 | <span style="white-space: nowrap;">`--verbose <level>`</span> |  |  | Log verbosity level [info|debug|trace] or cumulative shorthand [-v|-vv|-vvv] |
-| <span style="white-space: nowrap;">`--log <format>`</span> |  |  | Log format ("json" or "text"). |
+| <span style="white-space: nowrap;">`--log <format>`</span> |  |  | Log format ("otel", "json", or "text"). |
 | <span style="white-space: nowrap;">`--color`</span> | `-c` | <span style="white-space: nowrap;">`RIVET_COLOR`</span> | Colored output. Enabled by default. Set flag to false or use NO_COLOR=1 to disable. |
 
 ### Output flags
