@@ -49,6 +49,7 @@ nav = [
   { "About" = [
     "about/purpose.md",
     "about/changes.md",
+    "about/contributing.md",
     "about/license.md",
   ]},
   { "Get started" = [

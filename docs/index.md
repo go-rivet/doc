@@ -1,7 +1,7 @@
 
 # Rivet
 
-Rivet is a minimal, lightweight task runner engine built for speed and simplicity in Go.
+Rivet is a minimal, lightweight task runner engine, written in Go, built for speed and simplicity.
 
 ---
 
