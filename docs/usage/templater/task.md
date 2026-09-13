@@ -58,6 +58,6 @@ sidebar_label: Task
 | Function | Go Signature |
 | :--- | :--- |
 | **`joinEnv`** | `(elem ...string) string` |
-| **`joinUrl`** | `(elem ...string) string` |
+| **`joinUrl`** | `(elem ...string) (string, error)` |
 | **`merge`** | `(base map[string]any, v ...map[string]any) map[string]any` |
 | **`spew`** | `(v any) string` |

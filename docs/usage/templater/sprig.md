@@ -90,19 +90,6 @@ sidebar_label: Sprig
 | :--- | :--- |
 | **`fail`** | `(msg string) (string, error)` |
 
-### General
-
-| Function | Go Signature |
-| :--- | :--- |
-| **`fragment`** | `via parsedURL.Fragment` |
-| **`host`** | `via parsedURL.Host` |
-| **`hostname`** | `()` |
-| **`opaque`** | `via parsedURL.Opaque` |
-| **`path`** | `via parsedURL.Path` |
-| **`query`** | `via parsedURL.RawQuery` |
-| **`scheme`** | `via parsedURL.Scheme` |
-| **`userinfo`** | `()` |
-
 ### List
 
 | Function | Go Signature |
@@ -219,7 +206,7 @@ sidebar_label: Sprig
 | **`replace`** | `(old string) string` |
 | **`squote`** | `(str ...any) string` |
 | **`substr`** | `(start int, s string) string` |
-| **`title`** | `via strings.Title` |
+| **`title`** | `(s string) string` |
 | **`toString`** | `(v any) string` |
 | **`trim`** | `via strings.TrimSpace` |
 | **`trimAll`** | `(a string) string` |
@@ -232,8 +219,16 @@ sidebar_label: Sprig
 
 | Function | Go Signature |
 | :--- | :--- |
+| **`fragment`** | `via parsedURL.Fragment` |
+| **`host`** | `via parsedURL.Host` |
+| **`hostname`** | `()` |
+| **`opaque`** | `via parsedURL.Opaque` |
+| **`path`** | `via parsedURL.Path` |
+| **`query`** | `via parsedURL.RawQuery` |
+| **`scheme`** | `via parsedURL.Scheme` |
 | **`urlJoin`** | `(d map[string]any) string` |
 | **`urlParse`** | `(v string) map[string]any` |
+| **`userinfo`** | `()` |
 
 ### Utility
 

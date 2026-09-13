@@ -43,11 +43,11 @@ rivet [OPTIONS] [tasks...] [-- ARGS]
 
 ### Directory flags
 
-| Option | Short | Description |
-| :--- | :--- | :--- |
-| <span style="white-space: nowrap;">`--dir <value>`</span> | `-d` | Sets the directory in which Task will execute and look for a Taskfile. |
-| <span style="white-space: nowrap;">`--taskfile <value>`</span> | `-t` | Choose which Taskfile to run. Defaults to "Taskfile.yml". |
-| <span style="white-space: nowrap;">`--global`</span> | `-g` | Runs global Taskfile, from $HOME/{T,t}askfile.{yml,yaml}. |
+| Option | Short | Env | Description |
+| :--- | :--- | :--- | :--- |
+| <span style="white-space: nowrap;">`--dir <value>`</span> | `-d` |  | Sets the directory in which Task will execute and look for a Taskfile. |
+| <span style="white-space: nowrap;">`--taskfile <value>`</span> | `-t` | <span style="white-space: nowrap;">`RIVET_TASKFILE`</span> | Choose which Taskfile to run. |
+| <span style="white-space: nowrap;">`--global`</span> | `-g` |  | Runs global Taskfile, from $HOME/{T,t}askfile.{yml,yaml}. |
 
 ### Watch flags
 
