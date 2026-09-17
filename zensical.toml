@@ -27,7 +27,7 @@ site_author = "go-rivet"
 # The site_url is the canonical URL for your site. When building online
 # documentation you should set this.
 # Read more: https://zensical.org/docs/setup/basics/#site_url
-site_url = "https://go-rivet.github.io/doc/"
+site_url = "https://docs.go-rivet.dev/"
 
 # The copyright notice appears in the page footer and can contain an HTML
 # fragment.

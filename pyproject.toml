@@ -2,7 +2,7 @@
 name = "Rivet"
 version = "0.1.0"
 description = "Rivet - Minimal Task"
-site_url = "https://go-rivet.github.io/"
+site_url = "https://docs.go-rivet.dev/"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
