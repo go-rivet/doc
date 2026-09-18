@@ -9,6 +9,7 @@ Rivet introduces the following changes to the upstream Task project:
 
 | Change | Area | Description |
 | :--- | :--- | :--- |
+| **New**&nbsp;:lucide-circle-gauge: | Performance | AST Parsing optimization (4x gain). |
 | **New**&nbsp;:lucide-circle-gauge: | Performance | OrderedMap replaced with faster implementation. |
 | **New**&nbsp;:lucide-rocket: | Configuration | Configuration via .env files following standard conventions. |
 | **New**&nbsp;:lucide-rocket: | Logging | Now supports OpenTelemetry format logs (CLI option `--log otel`). |
