@@ -9,15 +9,15 @@ Rivet introduces the following changes to the upstream Task project:
 
 | Change | Area | Description |
 | :--- | :--- | :--- |
-| **New**&nbsp;:lucide-circle-gauge: | Performance | AST Parsing optimization (4x gain). |
+| **Refactor**&nbsp;:lucide-circle-gauge: | Performance | AST Parsing optimization (4x gain). |
 | **New**&nbsp;:lucide-circle-gauge: | Performance | OrderedMap replaced with faster implementation. |
 | **New**&nbsp;:lucide-rocket: | Configuration | Configuration via .env files following standard conventions. |
 | **New**&nbsp;:lucide-rocket: | Logging | Now supports OpenTelemetry format logs (CLI option `--log otel`). |
 | **New**&nbsp;:lucide-rocket: | Transform | Makefile like `subst` pattern for efficient transform definition. |
 | **New**&nbsp;:lucide-rocket: | Transform | Express a tasks sources and targets as a `transform` with `matches` and `yields`. |
-| **Refactored**&nbsp;:lucide-rocket: | CLI Flags | Redesign of flag mechanism (removes pflag dep) with support for doc generation. |
+| **Refactor**&nbsp;:lucide-rocket: | CLI Flags | Redesign of flag mechanism (removes pflag dep) with support for doc generation. |
 | **New**&nbsp;:lucide-rocket: | Fingerprint | Speedup for Timestamp fingerprint method. |
-| **Refactored**&nbsp;:lucide-rocket: | Fingerprint | Simplified operation, always runs, `force` to override. As a result the schema item `method` is removed. |
+| **Refactor**&nbsp;:lucide-rocket: | Fingerprint | Simplified operation, always runs, `force` to override. As a result the schema item `method` is removed. |
 | **Removed**&nbsp;:lucide-rocket: | Fingerprint | Removed checksum fingerprint method. |
 | **New**&nbsp;:lucide-rocket: | Templater | Sprig functions are refactored into the Rivet codebase. |
 | **New**&nbsp;:lucide-rocket: | Vars | Both `vars` and `env` are unified into `vars`. |
