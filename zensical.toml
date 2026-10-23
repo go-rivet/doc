@@ -58,6 +58,7 @@ nav = [
   { "Usage" = [
     "usage/cli.md",
     "usage/config.md",
+    "usage/namespaces.md",
     { "Schema" = [
       "usage/schema/global.md",
       "usage/schema/task.md",
