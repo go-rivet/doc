@@ -15,7 +15,7 @@ tasks:
       - task: project:util:message
 ```
 
-```yaml title="common/util/Tasfile.yml (Namespaced taskfile)"
+```yaml title="common/util/Taskfile.yml (Namespaced taskfile)"
 version: 42
 
 namespace: project:util
@@ -75,7 +75,7 @@ version: 42
 tasks:
   message:
     cmds:
-      -cmd: echo "Hello from root task"
+      - cmd: echo "Hello from root task"
 ---
 version: 42
 
@@ -266,7 +266,7 @@ tasks:
       - task: util:message
 ```
 
-```yaml title="common/util/Tasfile.yml (Utility taskfile)"
+```yaml title="common/util/Taskfile.yml (Utility taskfile)"
 version: 42
 
 tasks:
@@ -336,7 +336,7 @@ tasks:
       - task: util:message
 ```
 
-```yaml title="common/util/Tasfile.yml (Utility taskfile)"
+```yaml title="common/util/Taskfile.yml (Utility taskfile)"
 version: 42
 
 vars:
