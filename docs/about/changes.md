@@ -9,6 +9,8 @@ Rivet introduces the following changes to the upstream Task project:
 
 | Change | Area | Description |
 | :--- | :--- | :--- |
+| **New**&nbsp;:lucide-rocket: | Lua | Lua script in Taskfiles! Replaces `for` and `in`, enables so much more. |
+| **New**&nbsp;:lucide-rocket: | Namespaces | Namespaced tasks and variables for intuitive and automatic Taskfile parsing. Replaces `includes`. |
 | **Refactor**&nbsp;:lucide-circle-gauge: | Performance | AST Parsing optimization (4x gain). |
 | **New**&nbsp;:lucide-circle-gauge: | Performance | OrderedMap replaced with faster implementation. |
 | **New**&nbsp;:lucide-rocket: | Configuration | Configuration via .env files following standard conventions. |

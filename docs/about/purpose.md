@@ -1,7 +1,30 @@
 
 # Purpose
 
-A **minimal task runner** that can be integrated into other environments, applications or workflows.
+A **minimal task runner** with simplified syntax, streamlined operation, and an embedded Lua scripting engine.
+
+
+## Why Rivet?
+
+### Grow without outgrowing your Taskfile
+
+Taskfiles are great when you start out. Simple commands are clean and easy to read. The problem shows up later, when you try to do something even moderately complicated: nested loops, real conditions, or dynamic variables. YAML and Go templates are clumsy at this. Logic gets messy fast, and at some point you hit a wall and move on to alternatives.
+
+Rivet resolves that complexity by building [Lua](../usage/lua.md) directly into the runner. You keep your tasks and dependencies in a standard Taskfile, and when a workflow becomes more advanced or requires fine-grained control, embedded Lua gives you a clean, idiomatic way to handle it.
+
+### Portable workflows
+
+Rivet is for people who want cross-platform workflows without maintaining separate Bash and PowerShell scripts. Because Lua is built right into the binary, your control flow, file checks, and loops run identically everywhere.
+
+The actual shell commands you run still depend on the OS, of course, but the orchestration around them stays completely portable.
+
+### Human and AI workflows
+
+Keeping workflows as named tasks (`rivet --list` and `rivet --list-all`) gives both humans and AI agents a clear structure to work with. When logic is needed, a Lua script inside a Taskfile is easier to write, review, and maintain than dense templates or fragile shell one-liners.
+
+AI can write a complex Makefile or shell script in seconds, which is great until you actually have to read, debug, or maintain it six months later. Lua is a much better target for LLM code generation: concise, reliable, and easy to read.
+
+Keeping workflows as named tasks (`rivet --list` and `rivet --list-all`) gives both humans and AI agents a clear structure to work with. When logic is needed, a Lua script inside a Taskfile is easier to write, review, and maintain than dense templates or fragile shell one-liners.
 
 
 ## Benchmarks
@@ -10,7 +33,7 @@ A **minimal task runner** that can be integrated into other environments, applic
 
 !!! abstract "Methodology"
     The purpose of these operational metrics is to assess Rivet's suitability for deploying, operating, and developing Taskfiles.
-    The comparison is made against Makefiles, shell scripts, and cURL — the foundations of modern software systems (despite being 50, 37 and 30 years old respectively).
+    The comparison is made against Makefiles, shell scripts, and cURL — the foundations of modern software systems (despite being 50, 37 and 30 years old respectively at the time of writing in 2026).
 
     **Philosophy:** "Less is more"
 

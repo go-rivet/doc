@@ -3,13 +3,13 @@
 The top-level Taskfile schema controls configuration shared by all tasks.
 
 ```yaml
-version: '3'
+version: 42
 
 vars: {}
 tasks: {}
 ```
 
-- `version`: Taskfile schema version. The current version is `3`.
+- `version`: Taskfile schema version, `42`.
 - `output`: Output style and grouping configuration.
 - `includes`: Other Taskfiles to load, including their namespace and options.
 - `set`: Shell options applied to tasks.

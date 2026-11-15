@@ -57,7 +57,7 @@ RIVET_TASKFILE=/etc/rivet/Taskfile.yml
 __Taskfile__
 ```yaml
 # tasks/Taskfile.yml
-version: '3'
+version: 42
 
 tasks:
   default:

@@ -11,7 +11,7 @@ Task definitions support the following fields:
 - `status`, `preconditions`: Conditions used by freshness checks.
 - `dir`, `set`, `shopt`, `vars`, `dotenv`: Task execution context.
 - `interactive`, `internal`, `ignore_error`, `failfast`: Execution behavior.
-- `prefix`, `run`, `platforms`, `if`, `watch`: Output, execution, and watch configuration.
+- `prefix`, `run`, `platforms`, `watch`: Output, execution, and watch configuration.
 
 Tasks also have shorthand forms: a scalar task value is one command, and a
 sequence is a list of commands.
