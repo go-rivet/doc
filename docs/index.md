@@ -1,7 +1,38 @@
 
 # Rivet
 
-Rivet is a minimal, lightweight task runner engine, written in Go, built for speed and simplicity.
+Rivet is a minimal task runner written in Go, built for speed, simplicity, and real logic through an embedded Lua scripting engine.
+
+## :lucide-code: Quickstart
+
+Keep simple commands simple, and use Lua when you need real logic:
+
+```yaml title="Taskfile.yml"
+version: 42
+
+vars:
+  NAMES: [Ada, Linus, Grace]
+
+tasks:
+  greet:
+    cmds:
+      - lua: |
+          for _, name in ipairs(ctx.vars.NAMES) do
+            if name ~= "Linus" then
+              rivet.task("hello", {NAME = name})
+            end
+          end
+  hello:
+    cmds:
+      - echo "Hello, {{.NAME}}!"
+```
+
+Run `rivet greet`:
+
+```text
+Hello, Ada!
+Hello, Grace!
+```
 
 ---
 
