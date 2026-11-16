@@ -1,47 +1,43 @@
 # Lua
 
-Lua scripts can be used as commands in version 42 Taskfiles:
+Lua scripts can be used as commands in version 42 Taskfiles.
 
 ```yaml
 version: 42
 
 tasks:
-    greet:
-        vars:
-            NAME: world
-        cmds:
-            - lua: |
-                print("Hello, " .. ctx.vars.NAME)
-                rivet.task("print-name", {NAME = ctx.vars.NAME})
-    print-name:
-        cmds:
-            - cmd: echo "{{.NAME}}"
+  greet:
+    vars:
+      NAME: world
+    cmds:
+      - lua: |
+          print("Hello, " .. ctx.vars.NAME)
+          rivet.task("print-name", {NAME = ctx.vars.NAME})
+  print-name:
+    cmds:
+      - cmd: echo "{{.NAME}}"
 ```
 
 ## Variables
 
-Lua scripts can access:
+Lua scripts receive these variable tables in the Lua context (`ctx`):
 
-- `ctx.vars`: Variables available to templates, including qualified names such
-  as `ctx.vars["build:TOOL"]`.
-- `ctx.global`: The current Taskfile's global variables.
-- `ctx.root`: Root environment, Taskfile dotenv, Taskfile vars, and CLI vars,
-  available from any namespace.
+- `ctx.vars`: Values visible to the current task. Unqualified names resolve
+  call vars, task vars, current namespace vars, Rivet special vars, then
+  environment values. Use `ctx.vars[":NAME"]` for root-scoped values or
+  `ctx.vars["build:TOOL"]` for a namespaced values.
+- `ctx.root`: Root environment (environment and root Taskfile dotenv),
+  root Taskfile vars, and CLI vars.
+- `ctx.global`: For root tasks, the same values as `ctx.root`. For namespaced
+  tasks, root environment (environment and root Taskfile dotenv) plus
+  the current namespace's Taskfile vars.
 - `ctx.ns`: Variables by namespace, such as `ctx.ns.build.TOOL` or
-  `ctx.ns["build:cross"].TOOL`.
-- `ctx.task`: Task dotenv, task vars, and call vars. Call vars override task vars.
-- `vars`: A copy of `ctx.vars` that can be changed and passed to another task.
+  `ctx.ns["build:cross:TOOL"]`.
+- `ctx.task`: Task dotenv, task vars, and call vars.
 
-For a root task, `ctx.global` and `ctx.root` contain the same values. For a
-namespaced task, `ctx.global` contains the environment and that namespace's
-vars, without root Taskfile vars or CLI vars. Namespace vars can shadow
+In a namespace, root Taskfile vars are not available through unqualified names;
+use `ctx.vars[":NAME"]` or `ctx.root.NAME`. Namespace vars can shadow
 environment values.
-
-In a namespace, use a leading `:` for root Taskfile vars, for example
-`ctx.vars[":NAME"]`, or use `ctx.root.NAME`. Unqualified names use task and
-current namespace values; environment values remain available and can be
-shadowed. Each table is a separate snapshot: changes to `ctx` or `vars` do not
-change other tables, task variables, or later Lua commands.
 
 ## Tasks and commands
 
@@ -51,10 +47,17 @@ Scripts can also use:
 - `rivet.cmd(command)`: Run a shell command in the task's environment.
 - `rivet.log.trace`, `debug`, `info`, `warn`, `error`: Write log messages.
 - `rivet.fn`: Utility functions including `split`, `joinPath`, `shellQuote`,
-  `patsubst`, `fromYaml`, and `toYaml`.
+  `patsubst`, `fromYaml`, and `toYaml`. See the
+  [Lua function reference](templater/lua.md) for all wrappers and their
+  template counterparts.
+
+Task names resolve relative to the calling Taskfile. In a namespace, a bare
+name prefers a task defined in that same Taskfile. Use a leading `:` to call a
+root task, or a qualified name such as `build:compile` to name a task in a
+namespace.
 
 Task and shell command failures raise Lua errors, which can be caught with
-`pcall`. An uncaught Lua error fails the command; Lua return values are ignored.
+`pcall`. An uncaught Lua error fails the command unless `ignore_error` is set.
 
 ## Conditions and loops
 
@@ -82,11 +85,13 @@ tasks:
 
 ## Transform
 
-Tasks with a [transform](schema/transform.md) make these values available:
+Task `sources`/`generates` fields or a [transform](schema/transform.md) can
+populate these values:
 
-- `ctx.sources`: Paths matching `matches`.
-- `ctx.generates`: Output paths from `yields`.
-- `ctx.transform`: `MATCH` and `YIELD` pairs from `subst`.
+- `ctx.transform`: `MATCH`/`YIELD` pairs produced by transform `subst`.
+- `ctx.sources`: Resolved input paths from task `sources` or transform `matches`.
+- `ctx.generates`: Resolved output paths from task `generates` or transform
+  `yields`.
 
 For example, to copy each matched file to its generated path:
 
@@ -94,13 +99,13 @@ For example, to copy each matched file to its generated path:
 version: 42
 
 tasks:
-    copy:
-        transform:
-            subst: '%.old:%.new'
-        cmds:
-            - lua: |
-                for _, pair in ipairs(ctx.transform) do
-                  rivet.cmd("cp " .. rivet.fn.shellQuote(pair.MATCH) ..
-                            " " .. rivet.fn.shellQuote(pair.YIELD))
-                end
+  copy:
+    transform:
+      subst: '%.old:%.new'
+    cmds:
+      - lua: |
+          for _, pair in ipairs(ctx.transform) do
+            rivet.cmd("cp " .. rivet.fn.shellQuote(pair.MATCH) ..
+                      " " .. rivet.fn.shellQuote(pair.YIELD))
+          end
 ```

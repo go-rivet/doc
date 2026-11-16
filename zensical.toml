@@ -70,7 +70,8 @@ nav = [
     ]},
     { "Templater" = [
       "usage/templater/task.md",
-      "usage/templater/sprig.md"
+      "usage/templater/sprig.md",
+      "usage/templater/lua.md"
     ]}
   ]},
 ]
