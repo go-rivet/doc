@@ -15,3 +15,19 @@ Task definitions support the following fields:
 
 Tasks also have shorthand forms: a scalar task value is one command, and a
 sequence is a list of commands.
+
+Task dotenv filenames can reference task and call variables:
+
+```yaml
+version: 42
+tasks:
+  greet:
+    vars:
+      ENV_FILE: .env
+    dotenv: ["{{.ENV_FILE}}"]
+    cmds:
+      - echo "{{.GREETING}}"
+```
+
+Filename variables must resolve before the task dotenv files are loaded, so
+they cannot depend on values available only in those files.
