@@ -34,7 +34,8 @@ rivet [OPTIONS] [tasks...] [-- ARGS]
 | :--- | :--- | :--- | :--- |
 | <span style="white-space: nowrap;">`--parallel`</span> | `-p` |  | Executes tasks provided on command line in parallel. |
 | <span style="white-space: nowrap;">`--concurrency <value>`</span> | `-C` | <span style="white-space: nowrap;">`RIVET_CONCURRENCY`</span> | Limit number of tasks to run concurrently. |
-| <span style="white-space: nowrap;">`--dry`</span> | `-n` | <span style="white-space: nowrap;">`RIVET_DRY`</span> | Compiles and prints tasks in the order that they would be run, without executing them. |
+| <span style="white-space: nowrap;">`--dry`</span> | `-n` | <span style="white-space: nowrap;">`RIVET_DRY`</span> | Prints tasks without executing commands. Task-level Lua still runs. |
+| <span style="white-space: nowrap;">`--super-dry`</span> |  | <span style="white-space: nowrap;">`RIVET_SUPER_DRY`</span> | Prints tasks without executing commands or Lua. |
 | <span style="white-space: nowrap;">`--summary`</span> |  |  | Show summary about a task. |
 | <span style="white-space: nowrap;">`--exit-code`</span> | `-x` |  | Pass-through the exit code of the task command. |
 | <span style="white-space: nowrap;">`--failfast`</span> | `-F` | <span style="white-space: nowrap;">`RIVET_FAILFAST`</span> | When running tasks in parallel, stop all tasks if one fails. |

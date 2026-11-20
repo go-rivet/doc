@@ -3,12 +3,12 @@
 Task definitions support the following fields:
 
 - `cmd` / `cmds`: Commands to run.
+- `lua`: Lua script to run before dependencies.
 - `deps`: Tasks to run first.
 - `label`, `desc`, `summary`: Display information.
 - `prompt`, `requires`: Interactive execution requirements.
 - `aliases`: Alternate task names.
 - `transform`: Input and output file relationships.
-- `status`, `preconditions`: Conditions used by freshness checks.
 - `dir`, `set`, `shopt`, `vars`, `dotenv`: Task execution context.
 - `interactive`, `internal`, `ignore_error`, `failfast`: Execution behavior.
 - `prefix`, `run`, `platforms`, `watch`: Output, execution, and watch configuration.

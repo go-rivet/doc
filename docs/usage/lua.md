@@ -1,6 +1,6 @@
 # Lua
 
-Lua scripts can be used as commands in version 42 Taskfiles.
+Lua scripts can be used as task commands.
 
 ```yaml
 version: 42
@@ -109,3 +109,45 @@ tasks:
                       " " .. rivet.fn.shellQuote(pair.YIELD))
           end
 ```
+
+## Flow control
+
+Lua scripts can control task execution:
+
+- `task.skip`: Skip the task.
+- `task.done`: Finish the task successfully without executing any further commands.
+- `task.precondition`: Fail the task because a precondition was not met.
+- `task.fail`: Fail the task.
+- `task.fatal`: Stop the run.
+- `task.status`: Report the task as up to date.
+
+Each function accepts an optional boolean condition and string message:
+
+```lua
+task.skip()                        -- unconditional, no message
+task.skip("Deployment disabled")   -- unconditional, with message
+task.skip(not enabled)             -- conditional, no message
+task.skip(not enabled, "Deployment disabled")
+```
+
+An omitted condition defaults to true; false does nothing. An omitted message
+produces no message or log. Invalid argument types are errors.
+
+Task-level Lua runs before dependencies. Use it for checks that should
+prevent dependencies from running, and status evaluations:
+
+```yaml
+version: 42
+
+tasks:
+  deploy:
+    lua: |
+      task.skip(ctx.vars.ENABLED ~= "yes", "Deployment disabled")
+      task.precondition(ctx.vars.ENV == nil, "ENV is required")
+    deps: [{task: build}]
+    cmds:
+      - cmd: deploy
+```
+
+Task level Lua is evaluated by `--status` and `--dry`, but not Lua in `cmds`. Lua can run commands and change files in these modes.
+Use `--super-dry` to skip all Lua; with `--status`, a task with task-level Lua has an unknown status.

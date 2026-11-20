@@ -5,13 +5,13 @@ paths for freshness checks and makes them available to commands.
 
 ```yaml
 tasks:
-    compile:
-        transform:
-            subst: 'src/%.old:build/%.new'
-            matches:
-                - src/**/*.old
-            yields:
-                - build/{{.TASK}}.stamp
+  compile:
+    transform:
+      subst: 'src/%.old:build/%.new'
+      matches:
+        - src/**/*.old
+      yields:
+        - build/{{.TASK}}.stamp
 ```
 
 ## `subst`
@@ -21,7 +21,7 @@ tasks:
 
 ```yaml
 transform:
-    subst: '%.old:%.new'
+  subst: '%.old:%.new'
 ```
 
 For `file_1.old`, this produces `file_1.new`. Directory prefixes can also be
@@ -35,9 +35,9 @@ Each substitution pairs an input path with its generated output path.
 
 ```yaml
 transform:
-    matches:
-        - file_*.txt
-        - '**/*.txt'
+  matches:
+    - file_*.txt
+    - '**/*.txt'
 ```
 
 Patterns support exact paths, `*`, `?`, and recursive `**` globs. Paths are
@@ -50,8 +50,8 @@ task's up-to-date check.
 
 ```yaml
 transform:
-    yields:
-        - build/{{.TASK}}.out
+  yields:
+    - build/{{.TASK}}.out
 ```
 
 Literal output paths may be declared before the files exist. Patterns are
@@ -59,4 +59,4 @@ expanded against the filesystem, and may use the same glob syntax as
 `matches`.
 
 `subst`, `matches`, and `yields` can be combined in one transform. See
-[Lua](../lua.md#transform) for accessing these paths in version 42.
+[Lua](../lua.md#transform) for accessing these paths.
